@@ -4,11 +4,11 @@ const { readdir, stat } = require('fs/promises');
 
 const pathFolder = path.join(__dirname, 'secret-folder');
 
-const getFiles = async (pathFolder) => {
+const getFiles = async (directory) => {
     try {
-        const files = await readdir(pathFolder, {withFileTypes: true});
+        const files = await readdir(directory, {withFileTypes: true});
             for (const fileDirent of files) {
-                const nameStat = await stat(path.join(pathFolder, fileDirent.name));
+                const nameStat = await stat(path.join(directory, fileDirent.name));
                 if( nameStat.isFile() ) {
                     const fileName = path.parse(fileDirent.name).name;
                     const fileExt = path.extname(fileDirent.name).slice(1);
