@@ -5,10 +5,6 @@ const { readdir, copyFile, mkdir, rm } = require('fs/promises');
 const pathCopyFolder = path.join(__dirname, 'files-copy');
 const pathFolder = path.join(__dirname, 'files');
 
-// fs.access(pathCopyFolder, fs.F_OK, (errorFind) => {
-    // if (errorFind) mkdir(pathCopyFolder);
-// })
-
 const getCopyFiles = async (directory, copyDirectory) => {
     try {
         const files = await readdir(directory, {withFileTypes: true});
