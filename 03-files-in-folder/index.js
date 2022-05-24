@@ -12,7 +12,7 @@ const getFiles = async (directory) => {
                 if( nameStat.isFile() ) {
                     const fileName = path.parse(fileDirent.name).name;
                     const fileExt = path.extname(fileDirent.name).slice(1);
-                    const fileSize = nameStat.size/1000 + 'kb';
+                    const fileSize = (nameStat.size/1024).toFixed(2) + 'kb';
                     stdout.write(`${fileName} - ${fileExt} - ${fileSize}\n`);
                 }
             }
