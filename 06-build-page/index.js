@@ -1,7 +1,6 @@
 const path = require('path');
 const fs = require('fs');
 const { readdir, readFile, copyFile, writeFile, rm, mkdir, stat } = require('fs/promises');
-const colors = require('colors');
 
 const pathTemplHtml = path.join(__dirname, 'template.html');
 const pathComponents = path.join(__dirname, 'components');
@@ -85,5 +84,5 @@ const getCopyFiles = async (directory, copyDirectory) => {
     await getBuildHtml(pathTemplHtml, pathComponents, pathBuild);
     await getBuildStyle(pathStyles, pathBuild)
     await getCopyFiles(pathAssets, pathBuildAssets);
-    process.stdout.write(colors.green(`\n The build directory was successfully created. Good luck! \n\n`));
+    console.log('\x1b[32m%s\x1b[0m',`\n\n The build directory was successfully created. Good luck! \n\n`);
 })();
