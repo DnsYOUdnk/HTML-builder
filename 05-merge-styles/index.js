@@ -14,7 +14,7 @@ const getData = async (directory) => {
     }
 }
 
-const getBundleStyle = async (directory, copyDirectory) => {
+const getBuildStyle = async (directory, copyDirectory) => {
     try {
         const files = await readdir(directory, {withFileTypes: true});
             for (const fileDirent of files) {
@@ -32,4 +32,4 @@ const getBundleStyle = async (directory, copyDirectory) => {
     }
 }
 
-getBundleStyle(pathStyles, pathBundle)
+getBuildStyle(pathStyles, pathBundle)
